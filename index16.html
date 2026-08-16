@@ -1,0 +1,2529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Princess 💖</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: #432b3c;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255, 188, 211, .35), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(210, 185, 255, .3), transparent 30%),
+        linear-gradient(135deg, #fff5f7, #fffdf9, #f5f0ff);
+}
+
+/* =========================================================
+   CUSTOM CURSOR HEARTS
+========================================================= */
+
+.cursor-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    font-size: 18px;
+    animation: cursorHeartFloat 1.4s ease-out forwards;
+}
+
+@keyframes cursorHeartFloat {
+
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% - 70px)
+            )
+            rotate(20deg)
+            scale(1.5);
+    }
+}
+
+/* =========================================================
+   GLOBAL FLOATING HEARTS
+========================================================= */
+
+.floating-heart {
+    position: fixed;
+    bottom: -60px;
+    pointer-events: none;
+    z-index: 2;
+    animation: floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0deg) scale(.5);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .85;
+    }
+
+    80% {
+        opacity: .8;
+    }
+
+    100% {
+        transform:
+            translateY(-120vh)
+            translateX(var(--drift))
+            rotate(360deg)
+            scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   STAGE SYSTEM
+========================================================= */
+
+.stage {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.stage.active {
+    display: flex;
+    animation: stageAppear .9s ease forwards;
+}
+
+@keyframes stageAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================================================
+   COMMON BUTTONS
+========================================================= */
+
+.magic-btn {
+    border: none;
+    padding: 15px 30px;
+    border-radius: 999px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .3px;
+    background: linear-gradient(135deg, #e85d91, #bd6bcb);
+    box-shadow: 0 15px 35px rgba(194, 92, 143, .3);
+    transition: .35s ease;
+}
+
+.magic-btn:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 20px 45px rgba(194, 92, 143, .4);
+}
+
+.magic-btn:active {
+    transform: scale(.96);
+}
+
+/* =========================================================
+   STAGE 1 - OPENING
+========================================================= */
+
+#opening {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(255, 185, 213, .4), transparent 40%),
+        linear-gradient(135deg, #fff3f7, #f9f1ff);
+}
+
+.opening-content {
+    position: relative;
+    z-index: 5;
+    max-width: 800px;
+}
+
+.opening-kicker {
+    color: #bb7194;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.opening-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(4rem, 10vw, 8rem);
+    color: #c95d8d;
+    line-height: .95;
+    text-shadow: 0 10px 30px rgba(201, 93, 141, .15);
+}
+
+.opening-subtitle {
+    margin: 30px auto;
+    max-width: 580px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.8;
+    color: #684c60;
+}
+
+.opening-heart {
+    font-size: 70px;
+    animation: heartBeat 1.6s infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* =========================================================
+   STAGE 2 - BOUQUET
+========================================================= */
+
+#bouquetStage {
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(255, 200, 220, .5), transparent 35%),
+        linear-gradient(135deg, #fff8fb, #f8f2ff);
+}
+
+.bouquet-wrapper {
+    width: min(100%, 850px);
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+.section-label {
+    color: #bb7194;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 11px;
+    margin-bottom: 14px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: #553344;
+    margin-bottom: 12px;
+}
+
+.section-description {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+    color: #765e6d;
+}
+
+.bouquet {
+    position: relative;
+    width: min(100%, 550px);
+    height: 470px;
+    margin: auto;
+}
+
+.flower {
+    position: absolute;
+    font-size: clamp(45px, 8vw, 85px);
+    filter: drop-shadow(0 12px 10px rgba(150, 75, 100, .15));
+    animation: flowerSway 3s ease-in-out infinite;
+}
+
+.flower:nth-child(1) {
+    left: 18%;
+    top: 10%;
+}
+
+.flower:nth-child(2) {
+    left: 38%;
+    top: 3%;
+    animation-delay: .3s;
+}
+
+.flower:nth-child(3) {
+    left: 57%;
+    top: 12%;
+    animation-delay: .6s;
+}
+
+.flower:nth-child(4) {
+    left: 27%;
+    top: 26%;
+    animation-delay: .9s;
+}
+
+.flower:nth-child(5) {
+    left: 48%;
+    top: 23%;
+    animation-delay: 1.2s;
+}
+
+.flower:nth-child(6) {
+    left: 68%;
+    top: 27%;
+    animation-delay: 1.5s;
+}
+
+@keyframes flowerSway {
+
+    0%, 100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg) translateY(-7px);
+    }
+}
+
+.leaf {
+    position: absolute;
+    font-size: 60px;
+    opacity: .9;
+}
+
+.leaf:nth-of-type(1) {
+    left: 18%;
+    top: 40%;
+    transform: rotate(-25deg);
+}
+
+.leaf:nth-of-type(2) {
+    right: 16%;
+    top: 40%;
+    transform: rotate(25deg);
+}
+
+.wrap {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 190px;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,.7), rgba(255,180,211,.75));
+    clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(130, 80, 100, .15);
+}
+
+.ribbon {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 45px;
+}
+
+.bouquet-tag {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(100, 60, 80, .12);
+    font-family: 'Caveat', cursive;
+    font-size: 23px;
+    color: #c45c8b;
+    z-index: 4;
+}
+
+.bouquet-petal {
+    position: fixed;
+    pointer-events: none;
+    z-index: 100;
+    animation: petalFall 3s ease-out forwards;
+}
+
+@keyframes petalFall {
+
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(100vh)
+            translateX(var(--petal-x))
+            rotate(540deg);
+    }
+}
+
+/* =========================================================
+   STAGE 3 - LETTER
+========================================================= */
+
+#letterStage {
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(255, 190, 220, .3), transparent 35%),
+        linear-gradient(135deg, #fff8f7, #f7f0ff);
+}
+
+.letter-layout {
+    width: min(1100px, 100%);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.teddy {
+    font-size: 190px;
+    text-align: center;
+    filter: drop-shadow(0 20px 20px rgba(100, 50, 70, .15));
+    animation: teddyFloat 3s ease-in-out infinite;
+}
+
+@keyframes teddyFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.teddy-heart {
+    text-align: center;
+    font-size: 45px;
+    margin-top: -40px;
+    animation: heartBeat 1.5s infinite;
+}
+
+.letter-paper {
+    min-height: 500px;
+    padding: 50px;
+    background:
+        linear-gradient(rgba(255,255,255,.9), rgba(255,249,239,.95)),
+        repeating-linear-gradient(
+            transparent 0px,
+            transparent 35px,
+            rgba(200,150,130,.12) 36px
+        );
+    border-radius: 12px;
+    box-shadow: 0 25px 70px rgba(120, 75, 100, .16);
+    transform: rotate(1deg);
+    position: relative;
+}
+
+.letter-paper::before {
+    content: "💌";
+    position: absolute;
+    top: -25px;
+    right: 25px;
+    font-size: 45px;
+}
+
+.letter-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 50px;
+    color: #c65d89;
+    margin-bottom: 25px;
+}
+
+.letter-text {
+    font-family: 'Caveat', cursive;
+    font-size: 25px;
+    line-height: 1.8;
+    color: #654654;
+    white-space: pre-line;
+}
+
+.letter-signature {
+    margin-top: 25px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
+    color: #bd5b89;
+}
+
+/* =========================================================
+   STAGE 4 - WISHING STAR
+========================================================= */
+
+#starStage {
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    color: white;
+    text-align: center;
+}
+
+.star-scene {
+    position: relative;
+    z-index: 5;
+}
+
+.star {
+    font-size: 100px;
+    opacity: 0;
+    animation: starArrival 3s ease forwards;
+}
+
+@keyframes starArrival {
+
+    0% {
+        opacity: 0;
+        transform: scale(.1) rotate(-180deg);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.4) rotate(20deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+.star-title {
+    margin-top: 30px;
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: #ffe5a5;
+}
+
+.star-message {
+    margin: 25px auto 35px;
+    max-width: 650px;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+/* =========================================================
+   STAGE 5 - CAKE
+========================================================= */
+
+#cakeStage {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(255, 210, 225, .5), transparent 35%),
+        linear-gradient(135deg, #fff7f9, #f6f0ff);
+}
+
+.cake-scene {
+    position: relative;
+    z-index: 5;
+}
+
+.cake {
+    position: relative;
+    width: 300px;
+    height: 220px;
+    margin: 80px auto 50px;
+}
+
+.cake-layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgba(100, 50, 70, .15);
+}
+
+.layer-bottom {
+    bottom: 0;
+    width: 300px;
+    height: 90px;
+    background: linear-gradient(#f49abb, #dc6d99);
+}
+
+.layer-middle {
+    bottom: 65px;
+    width: 245px;
+    height: 75px;
+    background: linear-gradient(#ffc5d8, #ef8eb2);
+}
+
+.layer-top {
+    bottom: 120px;
+    width: 190px;
+    height: 65px;
+    background: linear-gradient(#ffe0eb, #f6a8c4);
+}
+
+.candle {
+    position: absolute;
+    bottom: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 75px;
+    border-radius: 5px;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 8px,
+        #f58eae 8px,
+        #f58eae 16px
+    );
+}
+
+.flame {
+    position: absolute;
+    bottom: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    animation: flameFlicker .7s infinite alternate;
+}
+
+@keyframes flameFlicker {
+
+    from {
+        transform: translateX(-50%) scale(.9) rotate(-4deg);
+    }
+
+    to {
+        transform: translateX(-50%) scale(1.1) rotate(4deg);
+    }
+}
+
+.flame.off {
+    display: none;
+}
+
+.cake-cut {
+    animation: cakeCut .8s ease forwards;
+}
+
+@keyframes cakeCut {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08) rotate(-2deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cake-message {
+    font-family: 'Great Vibes', cursive;
+    font-size: 55px;
+    color: #c95d8d;
+    margin-bottom: 25px;
+}
+
+/* =========================================================
+   STAGE 6 - MEMORIES
+========================================================= */
+
+#memoriesStage {
+    display: none;
+    padding: 90px 20px;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255, 205, 220, .25), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(210, 190, 255, .25), transparent 30%),
+        #fffafd;
+}
+
+#memoriesStage.active {
+    display: block;
+}
+
+.memories-header {
+    max-width: 800px;
+    margin: 0 auto 70px;
+    text-align: center;
+}
+
+.memories-header h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3rem, 7vw, 6rem);
+    color: #c65d8b;
+}
+
+.memories-header p {
+    max-width: 650px;
+    margin: 20px auto 0;
+    line-height: 1.8;
+    color: #765f6e;
+}
+
+.memory-list {
+    width: min(1150px, 100%);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 65px;
+}
+
+.memory-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 55px;
+    padding: 30px;
+    border-radius: 30px;
+    background: rgba(255,255,255,.75);
+    box-shadow: 0 25px 60px rgba(120, 75, 110, .08);
+    border: 1px solid rgba(255,255,255,.9);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: .8s ease;
+}
+
+.memory-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.memory-card:nth-child(even) .memory-image {
+    order: 2;
+}
+
+.memory-card:nth-child(even) .memory-content {
+    order: 1;
+}
+
+.memory-image {
+    position: relative;
+    min-height: 360px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(100, 60, 80, .15);
+}
+
+.memory-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    object-fit: cover;
+    display: block;
+    transition: transform .8s ease;
+}
+
+.memory-card:hover .memory-image img {
+    transform: scale(1.06);
+}
+
+.memory-number {
+    color: #c86791;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.memory-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+    color: #513443;
+    margin-bottom: 20px;
+}
+
+.memory-content p {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.55;
+    color: #745467;
+}
+
+.memory-divider {
+    width: 80px;
+    height: 3px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #e477a0, #c67bd2);
+    margin: 20px 0;
+}
+
+/* =========================================================
+   BALLOONS
+========================================================= */
+
+.balloon {
+    position: fixed;
+    bottom: 20px;
+    z-index: 11;
+    cursor: pointer;
+    font-size: 55px;
+    animation: balloonFloat 20s ease-in-out infinite;
+    transition: .3s;
+}
+
+.balloon:hover {
+    transform: scale(1.15);
+}
+
+@keyframes balloonFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+.balloon.popped {
+    animation: balloonPop 2s ease forwards;
+}
+
+@keyframes balloonPop {
+
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   FINAL STAGE
+========================================================= */
+
+#finalStage {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(255, 185, 215, .45), transparent 40%),
+        linear-gradient(135deg, #fff5f8, #f6efff);
+}
+
+.final-card {
+    width: min(900px, 100%);
+    padding: clamp(35px, 7vw, 80px);
+    border-radius: 40px;
+    background: rgba(255,255,255,.8);
+    box-shadow: 0 30px 80px rgba(130, 75, 110, .12);
+}
+
+.final-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(4rem, 9vw, 8rem);
+    color: #c75c8c;
+    line-height: 1;
+    margin-bottom: 30px;
+}
+
+.final-text {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    line-height: 1.7;
+    color: #654653;
+    white-space: pre-line;
+}
+
+.final-signature {
+    margin-top: 40px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 50px;
+    color: #c75c8c;
+}
+
+.final-hearts {
+    font-size: 45px;
+    margin-top: 35px;
+    animation: heartBeat 1.5s infinite;
+}
+
+
+/* =========================================================
+   BACKGROUND MUSIC CONTROL
+========================================================= */
+
+.music-toggle {
+    position: fixed;
+    top: 22px;
+    right: 22px;
+    z-index: 9999;
+    width: 52px;
+    height: 52px;
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 50%;
+    background: rgba(255,255,255,.78);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 30px rgba(120,75,110,.16);
+    cursor: pointer;
+    font-size: 22px;
+    transition: .3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1) rotate(8deg);
+}
+
+.music-toggle.playing {
+    animation: musicPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+/* =========================================================
+   TULIP FLOATERS
+========================================================= */
+
+.tulip-floater {
+    position: fixed;
+    bottom: -70px;
+    z-index: 10;
+    cursor: pointer;
+    pointer-events: auto;
+    font-size: 48px;
+    filter: drop-shadow(0 10px 10px rgba(120,60,90,.14));
+    animation: tulipFloat 20s ease-in-out infinite;
+    transition: .3s;
+}
+
+.tulip-floater:hover {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+.tulip-floater.popped {
+    animation: tulipPop 2s ease forwards;
+}
+
+@keyframes tulipFloat {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-28px) rotate(5deg); }
+}
+
+@keyframes tulipPop {
+    to { transform: scale(2) rotate(20deg); opacity: 0; }
+}
+
+.tulip-float-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    font-size: 18px;
+    transition: all .8s ease;
+}
+
+/* prettier tulip bouquet */
+.flower.tulip {
+    filter: drop-shadow(0 14px 12px rgba(170,75,105,.18));
+    animation-duration: 2.6s;
+}
+
+.flower.tulip-center {
+    font-size: clamp(55px, 9vw, 95px);
+    z-index: 3;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media(max-width: 800px) {
+
+    .letter-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .teddy {
+        font-size: 130px;
+    }
+
+    .letter-paper {
+        padding: 30px;
+    }
+
+    .memory-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .memory-card:nth-child(even) .memory-image,
+    .memory-card:nth-child(even) .memory-content {
+        order: unset;
+    }
+
+    .memory-image,
+    .memory-image img {
+        min-height: 280px;
+    }
+
+    .bouquet {
+        transform: scale(.85);
+        margin-top: -20px;
+        margin-bottom: -20px;
+    }
+}
+
+@media(max-width: 500px) {
+
+    .music-toggle {
+        width: 46px;
+        height: 46px;
+        top: 14px;
+        right: 14px;
+    }
+
+    .magic-btn {
+        padding: 13px 22px;
+        font-size: 13px;
+    }
+
+    .letter-text {
+        font-size: 21px;
+    }
+
+    .bouquet {
+        transform: scale(.7);
+        margin-top: -50px;
+        margin-bottom: -70px;
+    }
+
+    .memory-card {
+        border-radius: 20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Background music: place your audio file in the same folder and name it music.mp3 -->
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicToggle" class="music-toggle" onclick="toggleMusic()" aria-label="Toggle background music">🎵</button>
+
+<!-- =========================================================
+     STAGE 1 - OPENING
+========================================================= -->
+
+<section id="opening" class="stage active">
+
+    <div class="opening-content">
+
+        <div class="opening-heart">💖</div>
+
+        <div class="opening-kicker">
+            A little journey made only for you
+        </div>
+
+        <h1 class="opening-title">
+            For My Princess
+        </h1>
+
+        <p class="opening-subtitle">
+            Some people come into our lives and quietly make everything brighter.
+            This little world is for the person who has made countless ordinary
+            moments feel like memories worth keeping forever.
+        </p>
+
+        <button class="magic-btn" onclick="goToStage('bouquetStage')">
+            Begin Your Birthday Journey ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STAGE 2 - BOUQUET
+========================================================= -->
+
+<section id="bouquetStage" class="stage">
+
+    <div class="bouquet-wrapper">
+
+        <div class="section-label">
+            A little something for you
+        </div>
+
+        <h2 class="section-title">
+            Tulips 🌷
+        </h2>
+
+        <p class="section-description">
+            I wanted to give you Flowers that feels just as bright, soft, and special as you.
+            So I filled this little garden with tulips — one for every smile, memory,
+            and beautiful reason why you mean so much to me.
+        </p>
+
+        <div class="bouquet">
+
+            <div class="flower tulip">🌷</div>
+            <div class="flower tulip">🌷</div>
+            <div class="flower tulip">🌷</div>
+            <div class="flower tulip">🌷</div>
+            <div class="flower tulip">🌷</div>
+            <div class="flower tulip">🌷</div>
+            <div class="flower tulip tulip-center">🌷</div>
+            <div class="flower tulip">🌷</div>
+
+            <div class="leaf">🌿</div>
+            <div class="leaf">🌿</div>
+
+            <div class="wrap"></div>
+
+            <div class="ribbon">🎀</div>
+
+            <div class="bouquet-tag">
+                For You, My Favorite Person 💖
+            </div>
+
+        </div>
+
+        <button class="magic-btn" onclick="releaseBouquet()">
+            Accept This Tulip Bouquet 🌷
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STAGE 3 - HANDWRITTEN LETTER
+========================================================= -->
+
+<section id="letterStage" class="stage">
+
+    <div class="letter-layout">
+
+        <div>
+
+            <div class="teddy">
+                🧸
+            </div>
+
+            <div class="teddy-heart">
+                💖
+            </div>
+
+            <p style="text-align:center; margin-top:25px; color:#856274;">
+                Someone very special wanted to help me deliver this letter.
+            </p>
+
+        </div>
+
+        <div class="letter-paper">
+
+            <h2 class="letter-title">
+                My Dearest Princess,
+            </h2>
+
+            <p id="letterText" class="letter-text"></p>
+
+            <div class="letter-signature">
+                With all my heart 💖
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STAGE 4 - WISHING STAR
+========================================================= -->
+
+<section id="starStage" class="stage">
+
+    <div class="star-scene">
+
+        <div class="star">
+            ⭐
+        </div>
+
+        <h2 class="star-title">
+            Make A Wish
+        </h2>
+
+        <p class="star-message">
+            Close your eyes for a moment and make a wish.
+            Maybe the universe is listening.
+            And maybe, somewhere in the stars,
+            a little bit of magic is already on its way to you.
+        </p>
+
+        <button class="magic-btn" onclick="goToStage('cakeStage')">
+            Continue To Your Birthday Cake 🎂
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STAGE 5 - CAKE
+========================================================= -->
+
+<section id="cakeStage" class="stage">
+
+    <div class="cake-scene">
+
+        <div class="section-label">
+            Your special birthday moment
+        </div>
+
+        <h2 class="cake-message">
+            Make A Wish 🎂
+        </h2>
+
+        <div class="cake">
+
+            <div class="cake-layer layer-bottom"></div>
+            <div class="cake-layer layer-middle"></div>
+            <div class="cake-layer layer-top"></div>
+
+            <div class="candle"></div>
+            <div id="flame" class="flame">🔥</div>
+
+        </div>
+
+        <button id="blowButton" class="magic-btn" onclick="blowCandle()">
+            Blow The Candle ✨
+        </button>
+
+        <button id="cutButton"
+                class="magic-btn"
+                style="display:none;"
+                onclick="cutCake()">
+
+            Cut The Cake 🔪🎂
+
+        </button>
+
+        <button id="memoriesButton"
+                class="magic-btn"
+                style="display:none;"
+                onclick="goToStage('memoriesStage')">
+
+            Continue To The Memories 📸
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STAGE 6 - MEMORIES
+========================================================= -->
+
+<section id="memoriesStage" class="stage">
+
+    <div class="memories-header">
+
+        <div class="section-label">
+            Nineteen little pieces of Youu
+        </div>
+
+        <h2>
+            Memories 📸
+        </h2>
+
+        <p>
+            These pictures may capture how beautiful you look, 
+            but they could never capture how beautiful you are as a person.
+            There is so much more to you than what a picture can ever show. 🫶
+        </p>
+
+    </div>
+
+
+    <div class="memory-list">
+
+        <!-- MEMORY 1 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo1.jpeg" alt="Memory 1">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 01
+                </div>
+
+                <h3>
+                      🎂 The Birthday Girl
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    The One Who Deserves to Be Celebrated.You have this beautiful way of making the people around you feel special, so today is a little reminder that you deserve all that same love, happiness, and warmth in return. You deserve a birthday as beautiful as the heart you carry.
+
+
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 2 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo2.jpeg" alt="Memory 2">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 02
+                </div>
+
+                <h3>
+                    💕 Your Beautiful Smile
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                   The Smile That Brightens Everything.Your smile isn't just beautiful to look at—it carries a warmth that makes people around you feel happier. It's one of those little things about you that can turn even an ordinary moment into something special.
+                </p>
+
+            </div>
+ 
+        </article>
+
+        <!-- MEMORY 3 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo3.jpeg" alt="Memory 3">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 03
+                </div>
+
+                <h3>
+                    🌿 The Adventurous Soul
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                   Curious, Fearless & Always Ready for Something New.You have this beautiful sense of adventure that makes you want to experience life rather than simply watch it pass by. Your curiosity and willingness to explore are some of the things that make you so much fun to be around.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 4 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo4.jpeg" alt="Memory 4">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 04
+                </div>
+
+                <h3>
+                    🧸 The Innocent Heart
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    The Little Bit of Innocence You Still Carry.No matter how much you've grown, there's still a sweet and innocent side of you that makes you incredibly lovable. That softness in you is something I hope life never takes away.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 5 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo5.jpeg" alt="Memory 5">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 05
+                </div>
+
+                <h3>
+                    🌙 A Moment Worth Remembering
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    You probably don't realize it, but there is something incredibly beautiful about the way you carry yourself. Even in the simplest moments, you have a way of making everything around you feel a little more magical. 🌸❤️
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 6 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo6.jpeg" alt="Memory 6">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 06
+                </div>
+
+                <h3>
+                   ☕ The Comforting One
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    The Person Who Makes Things Feel Easier.You have a natural way of making people feel comfortable around you. Sometimes you don't even need to say anything—you simply being there can make things feel a little lighter.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 7 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo7.jpeg" alt="Memory 7">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 07
+                </div>
+
+                <h3>
+                   ✨ The One Who Lights Up a Room
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    Your Energy Is Impossible to IgnoreYou bring a certain energy wherever you go. Your laughter, your expressions, your little reactions and your completely unique personality have a way of making everything around you feel more alive.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 8 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo8.jpeg" alt="Memory 8">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 08
+                </div>
+
+                <h3>
+                    🌸 The Beautiful Soul
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    Beautiful in Ways a Picture Could Never Capture.Your beauty isn't only in your appearance. It's in your kindness, your expressions, your heart, and the way you treat the people you care about. That's the kind of beauty that stays.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 9 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo9.jpeg" alt="Memory 9">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 09
+                </div>
+
+                <h3>
+                    Thank You For Being There
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    Life changes, people grow, and days move quickly. But some people leave a mark on your heart that time cannot erase. You are one of those people for me.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 10 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo10.jpeg" alt="Memory 10">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 10
+                </div>
+
+                <h3>
+                    🪞 The Real You
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    Unfiltered, Unapologetic & Completely Yourself.One of the things I admire most about you is that there is no one quite like you. Your quirks, your habits, your random thoughts and your way of doing things are what make you genuinely unforgettable.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 11 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo11.jpeg" alt="Memory 11">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 11
+                </div>
+
+                <h3>
+                    🧸 The Soft-Hearted One
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    A Heart That Still Knows How to Feel Deeply.Behind all the craziness and laughter, there is someone who cares much more deeply than she sometimes shows. You have a softness in your heart that makes you incredibly precious.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 12 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo12.jpeg" alt="Memory 12">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 12
+                </div>
+
+                <h3>
+                    🌅 The Beautiful Presence
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    You Don't Have to Try to Stand Out.There is something naturally graceful about you. You don't need to seek attention or prove anything—you have a presence that quietly makes people notice you and remember you.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 13 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo13.jpeg" alt="Memory 13">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 13
+                </div>
+
+                <h3>
+                   🌇 The Dreamer
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    Always Hoping, Feeling & Looking Forward.You have dreams, hopes and little things you wish for, and I hope you never stop chasing them. Keep believing in yourself, even when the road ahead doesn't look completely clear.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 14 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo14.jpeg" alt="Memory 14">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 14
+                </div>
+
+                <h3>
+                    💗 The Caring One
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    You Care More Than You Let People KnowYou remember the little things, notice when someone isn't okay, and care even when you don't always say it out loud. Your ability to care so genuinely is one of the most beautiful things about you.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 15 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo15.jpeg" alt="Memory 15">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 15
+                </div>
+
+                <h3>
+                    The Friendship I Treasure
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    Some friendships are built from big promises. Ours feels built from small things — checking in, laughing together, sharing secrets, and being there when it matters.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 16 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo16.jpeg" alt="Memory 16">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 16
+                </div>
+
+                <h3>
+                   🌷 The Graceful One
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    Strong, Elegant & Beautifully Yourself.You carry yourself with a quiet confidence that makes you beautiful without even trying. There is strength in you, softness in you, and a certain grace that belongs completely to you.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 17 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo17.jpeg" alt="Memory 17">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 17
+                </div>
+
+                <h3>
+                    One Of My Favorite People
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    If I had to choose one thing I am grateful for, it would be the people who make life feel more meaningful. You will always be one of my favorite people.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 18 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo18.jpeg" alt="Memory 18">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 18
+                </div>
+
+                <h3>
+                    💐 The One Who Deserves Flowers
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    Because Your Heart Deserves to Be Appreciated.If every kind thing you've ever done could turn into a flower, you'd probably have an entire garden by now. You give so much warmth to others, and I hope you always receive that same warmth back.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- MEMORY 19 -->
+
+        <article class="memory-card">
+
+            <div class="memory-image">
+                <img src="photo19.jpeg" alt="Memory 19">
+            </div>
+
+            <div class="memory-content">
+
+                <div class="memory-number">
+                    Memory 19
+                </div>
+
+                <h3>
+                    🌸 Simply You
+                </h3>
+
+                <div class="memory-divider"></div>
+
+                <p>
+                    The Person I Am Grateful to KnowAfter all the qualities, smiles, quirks, kindness, craziness and beautiful little things that make you who you are, there is still only one way I can describe you—you are simply you, and that's more than enough. I'm genuinely grateful that someone like you became my best friend and my favourite person. ❤️
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div style="text-align:center; margin-top:80px;">
+
+        <button class="magic-btn" onclick="goToStage('finalStage')">
+            Finish Memories 💖
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL STAGE
+========================================================= -->
+
+<section id="finalStage" class="stage">
+
+    <div class="final-card">
+
+        <h1 class="final-title">
+            Happy Birthday,
+            Pinkuu 💖🫶
+        </h1>
+
+        <p class="final-text">
+There are some people who enter our lives quietly, and somehow, without even realizing it, become a part of our happiness.
+
+You are one of those people for me.
+
+And if I could give you one thing on your birthday, it would be the ability to see yourself through the eyes of the people who love and appreciate you.
+
+Because then you would know just how incredibly special you are.
+
+You have brought so much laughter, warmth, and happiness into my life in ways you probably don't even realize.
+
+And I hope you know that your existence matters.
+
+Your smile matters.
+
+Your happiness matters.
+
+You matter.
+
+I hope this birthday brings you the kind of happiness that doesn't disappear when the candles go out, but stays quietly in your heart for a very, very long time.
+
+I hope life is gentle with you.
+
+I hope you find reasons to smile even on the difficult days.
+
+I hope you never stop dreaming, never stop believing in yourself, and never feel like you have to become someone else to be worthy of beautiful things.
+
+Because you are already enough.
+
+More than enough.
+
+So today, let yourself be celebrated.
+
+Laugh a little louder.
+
+Smile a little longer.
+
+Dream a little bigger.
+
+Make every wish your heart has been quietly holding onto.
+
+And when you blow out those candles, I hope you know that somewhere in this world, there is someone who is genuinely grateful that you exist.
+
+Someone who is grateful for every laugh, every conversation, every silly moment, every memory, and every little piece of happiness you've brought into their life.
+
+I hope the coming year gives you everything you've been wishing for, and even a few beautiful things you never knew you needed.
+
+I hope you meet the version of yourself you've always dreamed of becoming.
+
+I hope you grow, glow, achieve, laugh, love, and live a life that makes you proud.
+
+And when life gets difficult, I hope you remember this:
+
+You are never as alone as you think you are.
+
+There are people who care about you.
+
+People who believe in you.
+
+People who are proud of you.
+
+And people who will always be grateful that their lives became a little brighter because you were in them.
+
+So, Princess...
+
+Happy Birthday to one of the most beautiful souls I've ever had the privilege of knowing. 💖
+
+May you always have reasons to smile.
+
+May you always have dreams worth chasing.
+
+May you always have people who remind you of your worth.
+
+And may you never, ever forget how deeply special you are.
+
+Not just today.
+
+Not just on your birthday.
+
+But every single day.
+
+I will always be with you, forever, because you are the person my heart chooses every single day. I don’t just want you in my life for a moment or for a certain chapter—I want you to be a part of all the chapters that are yet to come.
+
+Somehow, you became a part of my everyday life without me even realizing it. You became my favorite habit, the person I look for, the person I want to talk to, and the person whose presence can make even an ordinary day feel special.
+
+You are the person who chooses me every day, and I want you to know that I will keep choosing you too. On the good days, on the difficult days, when we laugh until our stomachs hurt, and even when we don't have the right words to say—I will still be here.
+
+I may not always know how to express what you mean to me, but please never doubt how deeply I care about you. You have a very special place in my heart, one that no one else could ever take.
+
+You are my favorite person, my comfort, my happiness, my beautiful little part of every day—and most importantly, **you are my princess. 👑❤️**
+
+And if life ever changes everything around us, I just hope one thing never changes: **that we continue to choose each other, again and again, every single day. Because if I get to choose, I’ll choose you. Always. Forever. ❤️🫶💖💞💗**
+
+        </p>
+
+        <div class="final-signature">
+           With Love ,Always 💕
+        </div>
+
+        <div class="final-hearts">
+            💖 💗 💕 💞 💓
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================================================
+   GLOBAL STAGE NAVIGATION
+========================================================= */
+
+function goToStage(stageId) {
+
+    document.querySelectorAll('.stage').forEach(stage => {
+        stage.classList.remove('active');
+    });
+
+    const target = document.getElementById(stageId);
+
+    target.classList.add('active');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+    if (stageId === 'memoriesStage') {
+
+        setTimeout(() => {
+
+            document.querySelectorAll('.memory-card').forEach((card, index) => {
+
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 180);
+
+            });
+
+        }, 400);
+
+    }
+
+    if (stageId === 'letterStage') {
+
+        startLetterAnimation();
+
+    }
+
+}
+
+
+/* =========================================================
+   CONTINUOUS FLOATING HEARTS
+========================================================= */
+
+const heartSymbols = ['💖', '💕', '💗', '💓', '💞', '💘'];
+
+function createFloatingHeart() {
+
+    const heart = document.createElement('div');
+
+    heart.className = 'floating-heart';
+
+    heart.textContent =
+        heartSymbols[
+            Math.floor(Math.random() * heartSymbols.length)
+        ];
+
+    heart.style.left = Math.random() * 100 + 'vw';
+
+    heart.style.fontSize =
+        (14 + Math.random() * 25) + 'px';
+
+    heart.style.animationDuration =
+        (7 + Math.random() *20) + 's';
+
+    heart.style.setProperty(
+        '--drift',
+        (Math.random() * 200 - 100) + 'px'
+    );
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 15000);
+
+}
+
+setInterval(createFloatingHeart, 700);
+
+
+/* =========================================================
+   CURSOR HEART TRAIL
+========================================================= */
+
+let lastHeartTime = 0;
+
+document.addEventListener('mousemove', function(e) {
+
+    const now = Date.now();
+
+    if (now - lastHeartTime < 90) return;
+
+    lastHeartTime = now;
+
+    const heart = document.createElement('div');
+
+    heart.className = 'cursor-heart';
+
+    heart.textContent =
+        heartSymbols[
+            Math.floor(Math.random() * heartSymbols.length)
+        ];
+
+    heart.style.left = e.clientX + 'px';
+
+    heart.style.top = e.clientY + 'px';
+
+    heart.style.setProperty(
+        '--x',
+        (Math.random() * 80 - 40) + 'px'
+    );
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 1500);
+
+});
+
+
+/* =========================================================
+   BOUQUET ANIMATION
+========================================================= */
+
+function releaseBouquet() {
+
+    for (let i = 0; i < 40; i++) {
+
+        const petal = document.createElement('div');
+
+        petal.className = 'bouquet-petal';
+
+        petal.textContent =
+            Math.random() > .5 ? '🌸' : '🌹';
+
+        petal.style.left =
+            Math.random() * 100 + 'vw';
+
+        petal.style.top =
+            Math.random() * 20 + 'vh';
+
+        petal.style.setProperty(
+            '--petal-x',
+            (Math.random() * 300 - 150) + 'px'
+        );
+
+        petal.style.fontSize =
+            (15 + Math.random() * 20) + 'px';
+
+        document.body.appendChild(petal);
+
+        setTimeout(() => {
+            petal.remove();
+        }, 3000);
+
+    }
+
+    setTimeout(() => {
+
+        goToStage('letterStage');
+
+    }, 1300);
+
+}
+
+
+/* =========================================================
+   HANDWRITTEN LETTER WORD-BY-WORD ANIMATION
+========================================================= */
+
+let letterStarted = false;
+
+function startLetterAnimation() {
+
+    if (letterStarted) return;
+
+    letterStarted = true;
+
+    const text = `
+I don't think I will ever be able to put into words just how much you mean to me.
+
+There are some people who come into our lives and slowly become a part of our everyday happiness. People who start as a simple presence and somehow become a beautiful part of our story.
+
+You are one of those people.
+
+When I look back at everything we've shared, I don't just remember the big moments. I remember the random conversations, the stupid jokes, the uncontrollable laughter, the little arguments, the chaos, the comfortable silences, and all those tiny moments that probably seemed ordinary at the time but mean so much to me now.
+
+Some of my favourite memories exist simply because you were there.
+
+Thank you for being there on the days when I needed someone without even knowing that I needed someone.
+
+Thank you for listening to the things I couldn't explain properly.
+
+Thank you for making me laugh when I didn't feel like smiling.
+
+Thank you for accepting the weird, chaotic, imperfect version of me and still choosing to stay.
+
+I hope you know that your presence in my life is something I will always be grateful for.
+
+Because you are not just someone I have memories with.
+
+You are someone who became a part of those memories.
+
+And maybe that's what makes our friendship so special.
+
+Years from now, when everything around us has changed, I hope we can still look back at these days and smile at how crazy, beautiful, and unforgettable they were.
+
+I hope life gives you everything you quietly wish for.
+
+I hope you achieve the dreams you are afraid to say out loud.
+
+I hope you find happiness in places you never expected.
+
+And whenever life becomes difficult, I hope you remember that you never have to face everything alone.
+
+No matter how much life changes, I will always be grateful that our paths crossed.
+
+And if I could keep only a few things from all the years of my life, I know that the memories I've made with you would be among them.
+
+So on your birthday, I just want you to know one simple thing:
+
+You are deeply appreciated.
+
+You are incredibly special.
+
+And you will always have a very special place in my life.
+
+Happy Birthday, Pinkuu. 🫶💖
+
+Thank you for being you.
+
+And thank you for being one of the most beautiful chapters of my life. 🫶
+
+`;
+
+    const target = document.getElementById('letterText');
+
+    const words = text.split(' ');
+
+    let index = 0;
+
+    const interval = setInterval(() => {
+
+        target.textContent +=
+            (index === 0 ? '' : ' ') + words[index];
+
+        index++;
+
+        if (index >= words.length) {
+
+            clearInterval(interval);
+
+            setTimeout(() => {
+
+                const button = document.createElement('button');
+
+                button.className = 'magic-btn';
+
+                button.textContent =
+                    'Follow The Wishing Star ⭐';
+
+                button.style.marginTop = '30px';
+
+                button.onclick = () => {
+
+                    goToStage('starStage');
+
+                };
+
+                document.querySelector('.letter-paper')
+                    .appendChild(button);
+
+            }, 1000);
+
+        }
+
+    }, 75);
+
+}
+
+
+/* =========================================================
+   CANDLE BLOWING
+========================================================= */
+
+function blowCandle() {
+
+    const flame =
+        document.getElementById('flame');
+
+    flame.classList.add('off');
+
+    document.getElementById('blowButton')
+        .style.display = 'none';
+
+    document.getElementById('cutButton')
+        .style.display = 'inline-block';
+
+    for (let i = 0; i < 25; i++) {
+
+        const particle = document.createElement('div');
+
+        particle.textContent = '✨';
+
+        particle.style.position = 'fixed';
+
+        particle.style.left = '50%';
+
+        particle.style.top = '45%';
+
+        particle.style.fontSize =
+            (15 + Math.random() * 25) + 'px';
+
+        particle.style.zIndex = 1000;
+
+        particle.style.transition =
+            'all 1.5s ease';
+
+        document.body.appendChild(particle);
+
+        setTimeout(() => {
+
+            particle.style.transform =
+                `translate(
+                    ${Math.random() * 400 - 200}px,
+                    ${Math.random() * -300}px
+                )`;
+
+            particle.style.opacity = 0;
+
+        }, 50);
+
+        setTimeout(() => {
+
+            particle.remove();
+
+        }, 1700);
+
+    }
+
+}
+
+
+/* =========================================================
+   CAKE CUTTING
+========================================================= */
+
+function cutCake() {
+
+    document.querySelector('.cake')
+        .classList.add('cake-cut');
+
+    document.getElementById('cutButton')
+        .style.display = 'none';
+
+    setTimeout(() => {
+
+        document.getElementById('memoriesButton')
+            .style.display = 'inline-block';
+
+    }, 1000);
+
+}
+
+
+
+/* =========================================================
+   BACKGROUND MUSIC
+========================================================= */
+
+const backgroundMusic = document.getElementById('backgroundMusic');
+const musicToggle = document.getElementById('musicToggle');
+
+function updateMusicButton() {
+    const playing = !backgroundMusic.paused;
+    musicToggle.textContent = playing ? '🎶' : '🎵';
+    musicToggle.classList.toggle('playing', playing);
+}
+
+function startMusic() {
+    backgroundMusic.play().then(updateMusicButton).catch(() => {
+        updateMusicButton();
+    });
+}
+
+function toggleMusic() {
+    if (backgroundMusic.paused) {
+        startMusic();
+    } else {
+        backgroundMusic.pause();
+        updateMusicButton();
+    }
+}
+
+// Browsers may block autoplay until the first user interaction.
+document.addEventListener('click', function startMusicOnce() {
+    startMusic();
+    document.removeEventListener('click', startMusicOnce);
+}, { once: true });
+
+backgroundMusic.addEventListener('play', updateMusicButton);
+backgroundMusic.addEventListener('pause', updateMusicButton);
+
+
+/* =========================================================
+   FLOATING TULIPS
+========================================================= */
+
+function createTulip() {
+    const tulip = document.createElement('div');
+    tulip.className = 'tulip-floater';
+    tulip.textContent = Math.random() > .5 ? '🌷' : '🌷';
+    tulip.style.left = Math.random() * 95 + 'vw';
+    tulip.style.bottom = (10 + Math.random() * 60) + 'px';
+    tulip.style.animationDelay = Math.random() * 2 + 's';
+    tulip.style.fontSize = (38 + Math.random() * 22) + 'px';
+
+    tulip.onclick = function() {
+        const rect = tulip.getBoundingClientRect();
+        tulip.classList.add('popped');
+        createTulipBurst(rect.left, rect.top);
+        setTimeout(() => tulip.remove(), 400);
+    };
+
+    document.body.appendChild(tulip);
+}
+
+function createTulipBurst(x, y) {
+    for (let i = 0; i < 10; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'tulip-float-particle';
+        particle.textContent = Math.random() > .5 ? '🌸' : '✨';
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        document.body.appendChild(particle);
+
+        setTimeout(() => {
+            particle.style.transform = `translate(${Math.random() * 160 - 80}px, ${Math.random() * 160 - 80}px) rotate(${Math.random() * 180}deg)`;
+            particle.style.opacity = 0;
+        }, 30);
+
+        setTimeout(() => particle.remove(), 900);
+    }
+}
+
+setInterval(createTulip, 20000);
+
+/* =========================================================
+   BALLOON GENERATOR
+========================================================= */
+
+function createBalloon() {
+
+    const balloon = document.createElement('div');
+
+    balloon.className = 'balloon';
+
+    balloon.textContent =
+        Math.random() > .5 ? '🎈' : '🎈';
+
+    balloon.style.left =
+        Math.random() * 95 + 'vw';
+
+    balloon.style.bottom =
+        (10 + Math.random() * 60) + 'px';
+
+    balloon.style.animationDelay =
+        Math.random() * 2 + 's';
+
+    balloon.onclick = function() {
+
+        balloon.classList.add('popped');
+
+        createBurst(
+            balloon.getBoundingClientRect().left,
+            balloon.getBoundingClientRect().top
+        );
+
+        setTimeout(() => {
+
+            balloon.remove();
+
+        }, 400);
+
+    };
+
+    document.body.appendChild(balloon);
+
+}
+
+setInterval(createBalloon, 20000);
+
+
+/* =========================================================
+   BALLOON BURST EFFECT
+========================================================= */
+
+function createBurst(x, y) {
+
+    for (let i = 0; i < 15; i++) {
+
+        const particle = document.createElement('div');
+
+        particle.textContent =
+            Math.random() > .5 ? '💖' : '✨';
+
+        particle.style.position = 'fixed';
+
+        particle.style.left = x + 'px';
+
+        particle.style.top = y + 'px';
+
+        particle.style.zIndex = 1000;
+
+        particle.style.fontSize = '20px';
+
+        particle.style.transition =
+            'all .8s ease';
+
+        document.body.appendChild(particle);
+
+        setTimeout(() => {
+
+            particle.style.transform =
+                `translate(
+                    ${Math.random() * 200 - 100}px,
+                    ${Math.random() * 200 - 100}px
+                )`;
+
+            particle.style.opacity = 0;
+
+        }, 50);
+
+        setTimeout(() => {
+
+            particle.remove();
+
+        }, 1000);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
